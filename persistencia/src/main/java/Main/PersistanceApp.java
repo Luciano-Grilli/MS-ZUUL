@@ -28,7 +28,7 @@ public class PersistanceApp {
 		try {
 			em.getTransaction().begin();
 			
-			
+			/*
 			Factura factura1 = new Factura();
 			
 			factura1.setNumero(12);
@@ -81,7 +81,12 @@ public class PersistanceApp {
 			
 			factura1.setTotal(120);
 			
-			em.persist(factura1);
+			*/
+			
+			Factura factura1 = em.find(Factura.class, 1L);
+			factura1.setNumero(85);
+			
+			em.remove(factura1);
 			
 			
 			
