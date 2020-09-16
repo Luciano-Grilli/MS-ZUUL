@@ -14,8 +14,13 @@ import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
 
+import lombok.Builder;
+import lombok.Data;
+
 @Entity
 @Table(name = "categoria")
+@Data
+@Builder
 @Audited
 public class Categoria implements Serializable{
 	
@@ -30,37 +35,6 @@ public class Categoria implements Serializable{
 	
 	@ManyToMany(mappedBy = "categoria")
 	private List<Articulo> articulos = new ArrayList<Articulo>();
-	
-	
-	public Categoria() {
-		
-	}
-
-	public List<Articulo> getArticulos() {
-		return articulos;
-	}
-
-	public void setArticulos(List<Articulo> articulos) {
-		this.articulos = articulos;
-	}
-
-	public Categoria(String denominacion) {
-		
-		this.denominacion = denominacion;
-	}
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getDenominacion() {
-		return denominacion;
-	}
-	public void setDenominacion(String denominacion) {
-		this.denominacion = denominacion;
-	}
 	
 	
 

@@ -17,11 +17,20 @@ import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 
 
 @Entity
 @Table(name = "factura")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Audited
 public class Factura implements Serializable{
 	
@@ -53,95 +62,5 @@ public class Factura implements Serializable{
 	@OneToMany(mappedBy = "factura",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<DetalleFactura> detalles = new ArrayList<DetalleFactura>();
 
-	public Factura() {
-		
-	}
-
-
-	public List<DetalleFactura> getDetalles() {
-		return detalles;
-	}
-
-
-	public void setDetalles(List<DetalleFactura> detalles) {
-		this.detalles = detalles;
-	}
-
-
-	public Factura(String fecha, int numero, int total) {
-		
-		this.fecha = fecha;
-		this.numero = numero;
-		this.total = total;
-	}
-
-
-
-	public Factura(String fecha, int numero, int total, Cliente cliente) {
-		
-		this.fecha = fecha;
-		this.numero = numero;
-		this.total = total;
-		this.cliente = cliente;
-	}
-
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-
-	public String getFecha() {
-		return fecha;
-	}
-
-
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-
-
-
-	public int getNumero() {
-		return numero;
-	}
-
-
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-
-
-	public int getTotal() {
-		return total;
-	}
-
-
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
 	
-	
-
 }

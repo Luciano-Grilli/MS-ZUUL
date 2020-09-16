@@ -21,14 +21,16 @@ public class PersistanceApp {
 	 */
 	public static void main(String args[]) {
 		
+		/*
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersistenceAppPU");
 		
 		EntityManager em = emf.createEntityManager();
 		
+		
 		try {
 			em.getTransaction().begin();
 			
-			/*
+			
 			Factura factura1 = new Factura();
 			
 			factura1.setNumero(12);
@@ -81,14 +83,12 @@ public class PersistanceApp {
 			
 			factura1.setTotal(120);
 			
-			*/
 			
+			//esto es de los videos de envers
 			Factura factura1 = em.find(Factura.class, 1L);
 			factura1.setNumero(85);
 			
 			em.remove(factura1);
-			
-			
 			
 			em.flush();
 			
@@ -102,6 +102,21 @@ public class PersistanceApp {
 		
 		em.close();
 		emf.close();
+			
+			*/
+			
+			
+			//esto es de lombok
+			Factura factura = Factura.builder().numero(1).fecha("3/11/2020").build();
+			Factura factura2 = Factura.builder().total(400).fecha("5/3/2020").build();
+			
+			System.out.println(factura.toString());
+			System.out.println(factura2.toString());
+			
+			Articulo art1 = Articulo.builder().cantidad(2).denominacion("shampoo").build();
+			
+			System.out.println(art1.toString());
+			
 		
 		
 	}
